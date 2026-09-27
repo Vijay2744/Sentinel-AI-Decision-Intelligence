@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentinel | Enterprise AI Decision Intelligence</title>
+<style>
+    :root {
+        --bg-main: #030712;
+        --bg-card: #111827;
+        --border: #1f2937;
+        --text-main: #f9fafb;
+        --text-muted: #9ca3af;
+        --accent-blue: #3b82f6;
+        --accent-glow: rgba(59, 130, 246, 0.15);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Navbar */
+    header {
+        border-bottom: 1px solid var(--border);
+        background: rgba(3, 7, 18, 0.8);
+        backdrop-filter: blur(12px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        color: #fff;
+    }
+
+    .logo span {
+        color: var(--accent-blue);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 32px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+    }
+
+    .btn {
+        background: #fff;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .btn:hover {
+        background: var(--text-muted);
+    }
+
+    .btn-primary {
+        background: var(--accent-blue);
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background: #2563eb;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 180px 0 100px;
+        text-align: center;
+        background: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--accent-blue);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 99px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-size: 64px;
+        font-weight: 900;
+        letter-spacing: -2px;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: var(--text-muted);
+        max-width: 680px;
+        margin: 0 auto 40px;
+    }
+
+    .hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    /* Grid Section */
+    .features {
+        padding: 80px 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 64px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 32px;
+        transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-blue);
+    }
+
+    .card h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 64px 0;
+        margin-top: 64px;
+        background: var(--bg-card);
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-col h4 {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .company-details p {
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 42px; }
+        .nav-links { display: none; }
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">Sentinel<span>.</span></div>
+            <nav class="nav-links">
+                <a href="#core">Platform Core</a>
+                <a href="#credit">Sentinel Credit</a>
+                <a href="#risk">Sentinel Risk</a>
+                <a href="#docs">API Docs</a>
+            </nav>
+            <a href="mailto:kethesrinagavijay@gmail.com" class="btn">Request Pilot</a>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-badge">v1.0 API Now Available</div>
+        <h1>The Decision Intelligence Plumbing for Regulated Finance.</h1>
+        <p>Sentinel empowers NBFCs and Wealth-Techs to orchestrate complex lending and risk workflows through a single, compliant API. AI assists. Deterministic policy governs.</p>
+        <div class="hero-actions">
+            <a href="#docs" class="btn btn-primary">Read the Docs</a>
+            <a href="mailto:kethesrinagavijay@gmail.com" class="btn">Book a Demo</a>
+        </div>
+    </section>
+
+    <section class="features container" id="core">
+        <h2 class="section-title">One Core. Many Decisions. Infinite Impact.</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Sentinel Credit</h3>
+                <p>Instant digital lending automation. End-to-end orchestration of scrip filtering, LTV calculation, and lien-marking triggers for Loan Against Securities (LAS).</p>
+            </div>
+            <div class="card">
+                <h3>Deterministic Policy Engine</h3>
+                <p>AI should never hallucinate a loan approval. Our deterministic firewall evaluates institutional constraints before any AI reasoning is triggered.</p>
+            </div>
+            <div class="card">
+                <h3>Immutable Auditability</h3>
+                <p>Generate specific reason codes and plain-text justifications for every approval, rejection, or exception routing. Bank-grade compliance baked in.</p>
+            </div>
+            <div class="card">
+                <h3>Sentinel Risk</h3>
+                <p>Real-time margin call triggers, collateral erosion monitoring, and automated liquidation warnings mapped directly to registry data.</p>
+            </div>
+            <div class="card">
+                <h3>Sentinel Wealth</h3>
+                <p>Account Aggregator (AA) data ingestion and multi-custody portfolio mapping for a consolidated, real-time view of client net worth.</p>
+            </div>
+            <div class="card">
+                <h3>Zero-Trust Architecture</h3>
+                <p>Built for scale with strict tenant isolation, Role-Based Access Control (RBAC), and precise API throttling at the gateway layer.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col company-details">
+                <h4>Sentinel</h4>
+                <p>Registered Micro Enterprise[cite: 2]</p>
+                <p>Date of Registration: 27/09/2026[cite: 2]</p>
+                <p>Udyam Registration Number: UDYAM-TS-09-0277370[cite: 2]</p>
+                <p>NIC Code: 62099 - Other information technology and computer service activities[cite: 2]</p>
+            </div>
+            <div class="footer-col company-details">
+                <h4>Contact & Head Office</h4>
+                <p>F 904, Mantri Celastia[cite: 2]</p>
+                <p>Financial District, Nanakramguda[cite: 2]</p>
+                <p>Hyderabad, Telangana, 500032[cite: 2]</p>
+                <br>
+                <p>Email: kethesrinagavijay@gmail.com[cite: 2]</p>
+                <p>Mobile: +91 9618002400[cite: 2]</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
